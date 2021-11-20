@@ -1,0 +1,14 @@
+version: 3
+
+services:
+
+  web:
+
+    build: .
+
+    container_name: gin_sample_container
+
+    environment:
+
+      - name = talha
+      - PORT = 9500 

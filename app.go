@@ -9,17 +9,22 @@ import (
 	"github.com/bxcodec/faker/v3"
 
 	"github.com/joho/godotenv"
+
+	"os"
 )
 
 type faker_struct struct {
 	Name     string `faker:"name"`
-	Time     string `faker:"time"`
 	Currency string `faker:"currency"`
 }
 
 func main() {
 
+	// gin.SetMode(gin.ReleaseMode)
+
 	godotenv.Load()
+
+	altair := os.Getenv("name")
 
 	r := gin.Default()
 
@@ -35,6 +40,7 @@ func main() {
 
 		c.JSON(200, gin.H{
 			"data": a,
+			"name": altair,
 		})
 	})
 
