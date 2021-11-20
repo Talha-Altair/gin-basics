@@ -7,16 +7,19 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"github.com/bxcodec/faker/v3"
+
+	"github.com/joho/godotenv"
 )
 
 type faker_struct struct {
 	Name     string `faker:"name"`
 	Time     string `faker:"time"`
-	Sentence string `faker:"sentence"`
 	Currency string `faker:"currency"`
 }
 
 func main() {
+
+	godotenv.Load()
 
 	r := gin.Default()
 
@@ -31,7 +34,7 @@ func main() {
 		}
 
 		c.JSON(200, gin.H{
-			"data": "a",
+			"data": a,
 		})
 	})
 
