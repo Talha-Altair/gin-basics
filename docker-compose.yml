@@ -14,5 +14,6 @@ services:
 
     environment:
 
-      - name = talha
-      - PORT = 9500 
+      - name=talha
+      - PORT=9500
+      - GIN_MODE=release

@@ -1,10 +1,10 @@
 FROM golang:latest
 
-ADD . ./app
+ADD . /app
 
 WORKDIR /app
 
-RUN while read l; do go get -v "$l"; done < <(go list -f '{{ join .Imports "\n" }}')
+RUN go get -d ./...
 
 RUN go install
 
